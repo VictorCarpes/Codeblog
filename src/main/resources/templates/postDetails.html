@@ -1,1 +1,55 @@
-Spring Boot
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <title>MyCodeBlog</title>
+    <!--CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+icons" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyCodeBlog</span>
+    </nav>
+</header>
+
+<main>
+    <div class="container" style="width: 60%; padding-bottom: 30px;">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                <li class="breadcrumb-item" aria-current="page"><a href="/posts">Posts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Post</li>
+            </ol>
+        </nav>
+
+
+        <article>
+            <h1 class="card-title" style="font-weight: bold; margin-bottom: 20px;"><span th:text="${post.titulo}"></span></h1>
+
+            <p class="card-subtitle mb-2 text-muted">
+                <i class="Material-icons">person_outline</i>
+                <span th:text="${post.autor}"></span>
+                <br>
+                <i class="materials-icons">date_range</i>
+                <span th:text="${post.data}"></span>
+            </p>
+
+            <section>
+                <p class="card-text" style="margin-top: 40px;"><span th:utext="${post.texto}"></span></p>
+            </section>
+
+        </article>
+
+
+    </div>
+</main>
+
+</body>
+</html>
