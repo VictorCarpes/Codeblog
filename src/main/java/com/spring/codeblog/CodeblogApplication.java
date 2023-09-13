@@ -1,15 +1,17 @@
 package com.spring.codeblog;
 
+
+import com.spring.codeblog.configuration.SecurityConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
-@EntityScan(basePackages = "com/spring/codeblog/model")
+@Import({SecurityConfig.class})
 public class CodeblogApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CodeblogApplication.class, args);
 	}
-
 }

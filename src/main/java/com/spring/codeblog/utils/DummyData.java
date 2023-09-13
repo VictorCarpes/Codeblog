@@ -2,10 +2,10 @@ package com.spring.codeblog.utils;
 
 import com.spring.codeblog.model.Post;
 import com.spring.codeblog.repository.CodeblogRepository;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,41 +20,24 @@ public class DummyData {
     public void savePosts(){
 
         List<Post> postList = new ArrayList<>();
-
         Post post1 = new Post();
         post1.setAutor("Victor Carpes");
         post1.setData(LocalDate.now());
         post1.setTitulo("Docker");
-        post1.setTexto("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consectetur neque, vitae congue tortor " +
-                "pharetra at. In efficitur massa vitae arcu rhoncus, mollis aliquam diam faucibus. Integer commodo sem quis nibh ullamcorper" +
-                " accumsan. Vestibu orci luctus et ultrices posuere cubilia curae; Morbi ultrices tincidunt" +
-                " lectus, ut auctor augue eleifend eu. Suspendisse finibus odio ut sem hendrerit, non eleifend est tincidunt. Suspendisse " +
-                "potenti. Sed felis nunc, eleifend eget augue nec, lacinia volutpat lectus. Vivamus nisi libero, hendrerit sed feugiat et," +
-                " fringilla id dui. Phasellus porta, lectus a auctor facilisis, nisl ante tempor nulla, non pellentesque tellus quam sit " +
-                "amet sapien.");
-
+        post1.setTexto("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
 
         Post post2 = new Post();
         post2.setAutor("Victor Carpes");
         post2.setData(LocalDate.now());
         post2.setTitulo("API REST");
-        post2.setTexto("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor consectetur neque, vitae congue tortor " +
-                "pharetra at. In efficitur massa vitae arcu rhoncus, mollis aliquam diam faucibus. Integer commodo sem quis nibh ullamcorper" +
-                " accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi ultrices tincidunt" +
-                " lectus, ut auctor augue eleifend eu. Suspendisse finibus odio ut sem hendrerit, non eleifend est tincidunt. Suspendisse " +
-                "potenti. Sed felis nunc, eleifend eget augue nec, lacinia volutpat lectus. Vivamus nisi libero, hendrerit sed feugiat et," +
-                " fringilla id dui. Phasellus porta, lectus a auctor facilisis, nisl ante tempor nulla, non pellentesque tellus quam sit " +
-                "amet sapien.");
+        post2.setTexto("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
 
         postList.add(post1);
         postList.add(post2);
 
-        for (Post post : postList){
+        for(Post post: postList){
             Post postSaved = codeblogRepository.save(post);
             System.out.println(postSaved.getId());
         }
-
     }
-
-
 }

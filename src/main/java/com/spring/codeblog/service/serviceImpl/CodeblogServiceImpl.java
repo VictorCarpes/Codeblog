@@ -1,10 +1,11 @@
 package com.spring.codeblog.service.serviceImpl;
 
 import com.spring.codeblog.model.Post;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.spring.codeblog.repository.CodeblogRepository;
 import com.spring.codeblog.service.CodeblogService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,9 +14,10 @@ public class CodeblogServiceImpl implements CodeblogService {
 
     @Autowired
     CodeblogRepository codeblogRepository;
+
     @Override
     public List<Post> findAll() {
-        return codeblogRepository.findAll();
+        return codeblogRepository.findAll(sortByIdAsc());
     }
 
     @Override
@@ -26,5 +28,9 @@ public class CodeblogServiceImpl implements CodeblogService {
     @Override
     public Post save(Post post) {
         return codeblogRepository.save(post);
+    }
+
+    private Sort sortByIdAsc() {
+        return new Sort(Sort.Direction.DESC, "id");
     }
 }
